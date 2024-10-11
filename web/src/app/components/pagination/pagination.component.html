@@ -1,0 +1,31 @@
+<ng-container *ngIf="totalRecords">
+  <div class="row mb-3 align-items-center" *ngIf="totalPages">
+    <div class="col-auto">Page {{ currentPage }} of {{ totalPages }} page(s)</div>
+  </div>
+  <div class="row mb-3 align-items-center">
+    <div class="col-auto">
+      <label for="pageSize" class="form-label me-2">Records per page:</label>
+      <select
+        id="pageSize"
+        class="form-select d-inline-block w-auto cursor-pointer"
+        (change)="onPageSizeChange($event)"
+      >
+        <option *ngFor="let size of pageSizeOptions" [value]="size">
+          {{ size }}
+        </option>
+      </select>
+    </div>
+    <div class="col text-end">
+      <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-end mb-0">
+          <li class="page-item cursor-pointer" [class.disabled]="currentPage === 1">
+            <a class="page-link" (click)="onPageChange('previous')">Previous</a>
+          </li>
+          <li class="page-item cursor-pointer" [class.disabled]="currentPage === totalPages">
+            <a class="page-link" (click)="onPageChange('next')">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</ng-container>

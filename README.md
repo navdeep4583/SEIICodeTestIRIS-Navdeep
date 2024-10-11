@@ -1,17 +1,12 @@
 # IRIS Code Test
 
-## Introduction
+## Submission
 
-Congratulations on making it to the code test! Firstly you will want to do a little setup to
-get the project up and running. The code contains two folders - web and api. The web folder 
-contains an Angular application where the code test will take place and the api contains a 
-skeleton api with a single endpoint that returns subdivision data (See glossary). This test
-should take around 1- 2 hours. Please read all the way through this document before starting. 
+* Completed all parts of the test
+* Added Table and Paginaton as reuseable components. Similarly if we have more advanced filters those can also be created as seperate components.
+* Used Bootstrap for styling over Material as Material already provide table components with full filtering and sorting capabilities
+* Pagination, sorting and filtering can be implemented on the API side considering the large amount of data.
 
-## Submitting
-Please create a new branch for your specific test. Name the branch in the format:
-iris-code-test-<yourname> so we can recognise your submittal. Once you have completed
-the test make sure all your code is pushed to your branch. 
 
 ### Api Setup
 

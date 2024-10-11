@@ -1,0 +1,39 @@
+<div class="table-responsive mt-3">
+  <h1 *ngIf="!rows.length; else displayTable" class="text-center">No records Found</h1>
+  <ng-template #displayTable>
+    <table class="table table-hover table-bordered align-middle text-center">
+      <thead class="table-primary">
+        <tr>
+          <th
+            *ngFor="let column of columns"
+            (click)="onSort(column.dataKey)"
+            class="col-2 cursor-pointer"
+          >
+            {{ column.header }}
+            <span *ngIf="column.dataKey === currentSortColumn">
+              <span
+                [ngStyle]="{
+                  color: 'black'
+                }"
+              >
+                {{ columnSortDirection[column.dataKey] === "asc" ? "▲" : "▼" }}
+              </span>
+            </span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows" class="table-light">
+          <td *ngFor="let column of columns">
+            <span *ngIf="column.dataKey === 'nearMapImageDate'; else elseBlock">
+              {{ row[column.dataKey] | date : "MM/dd/YYYY" }}
+            </span>
+            <ng-template #elseBlock>
+              <span>{{ row[column.dataKey] }}</span>
+            </ng-template>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-template>
+</div>
